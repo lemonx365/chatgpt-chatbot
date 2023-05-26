@@ -1,3 +1,3 @@
 # Chatgpt-ChatBOT
 
-Very Simple chatbot using chatgpt API
+very simple chatbot using chatgpt API
