@@ -6,7 +6,7 @@ function doGet(e) {
   const userInputText = e.parameter.text;
   const callback = e.parameter.callback;
   const response = {
-    output: [{ type: "text", value: askOpenai(userInputText) }],
+    output: [{ type: "text", value: postOpenAI(userInputText) }],
   };
 
   let responseText = "";
@@ -24,7 +24,7 @@ function doGet(e) {
   }
 }
 
-function askOpenai(message) {
+function postOpenAI(message) {
   const messages = [{ role: "user", content: message }];
   const headers = {
     Authorization: "Bearer " + openaiApiKey,
@@ -37,7 +37,6 @@ function askOpenai(message) {
     method: "POST",
     payload: JSON.stringify({
       model: "gpt-3.5-turbo",
-      max_tokens: 1024,
       messages: messages,
     }),
   };
